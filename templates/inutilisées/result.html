@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href= {{ url_for('static', filename='style.css') }}>
+	<title> resultat</title>
+</head>
+<body>
+	<h1> voici les commentaire annotés </h1>
+  <div id="commentaire">
+      {% for i,com,idauteur,avis, idarticle,auteur in commentaire %}
+
+    
+      	
+      	{% if avis==0 %}
+   <p><span class="dot_red"></span>  {{com}} </p>
+   <div id="auteur">
+   		<p> de {{auteur}} </p>
+   	</div>
+      	{% elif avis==1 %}
+   
+    <p> <span class="dot_green"></span> {{com}} </p>
+  <div id="auteur">
+   		<p> de {{auteur}} </p>
+   	</div>
+      	{% else%}
+  <p> <span class="dot"></span> {{com}} </p>
+  <div id="auteur">
+   		<p> de {{auteur}} </p>
+   	</div>
+      	{% endif %}
+      	{% endfor %}
+</div>
+</body>
+</html>

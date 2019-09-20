@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="uft-8" />
+
+		<!-- code bootstrap --> 
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+		<title> Modération automatique  </title>
+
+		<style type="text/css">
+		body {
+			background-color: #d9d9d9;
+			max-width: 50%;
+			margin: auto;
+			} </style>
+</head>
+
+
+<body>
+	<div class="containe">
+	<h1 class="text-center"> Bienvenue </h1>
+
+<p class="intro"> Cette application web sert à prédire si un commentaire est injurieux ou non et spécifier le type d'ingure
+associé </p>
+
+<p> Voici Les étapes nécessaires à la réalisation du modèle de prédiction, elles doivent être réalisées successivement  </p>
+
+<ul>
+	<li> Extraire les commentaires des 10 premiers articles du site JeuxVideo.com <span>
+		<form action="GetDataset" method="post" enctype="multipart/form-data"><span>
+    	<input type="submit" class="btn btn-outline-info" value=" Extraire" />
+		</form>
+	</li>
+	<br>
+	<br>
+	<li> Rajouter des commentaires injurieux provenants de diverses sources   <span>
+		<form action="GetCommentsIngured" method="post" enctype="multipart/form-data"><span>
+    	<input type="submit" class="btn btn-outline-info" value=" GO " />
+		</form>
+	</li>
+	<br>
+	<br>
+	<li> Labéliser manuellement les commentaires extraits du site JeuxVideo.com   <span>
+		<form action="negvspos" method="post" enctype="multipart/form-data" ><span>
+    	<input type="submit" class="btn btn-outline-info" value="ICI" /><span>
+		</form>
+	</li>
+		<br>
+	<br>
+	<li> Crée le fichier nécessaire à la création du modèle, et  sauvegarde nos commentaires labélisés <span>
+		<form action="createfich" method="post" enctype="multipart/form-data" ><span>
+    	<input type="submit" class="btn btn-outline-info" value="ICI" /><span>
+		</form>
+	</li>
+	<br>
+	<br>
+	<li> Ajouter les commentaires à tester et faire la prédiction<span>
+		<p> Attention étape assez longue</p>
+		<form action="bruitter_completed" method="post" enctype="multipart/form-data" ><span>
+    	<input type="submit" class="btn btn-outline-info" value="ICI" /><span>
+		</form>
+	</li>
+	<br>
+	<br>
+	<li> Utiliser l'application de prédiction : <span>
+		<form action="predict_page" method="post" enctype="multipart/form-data" >
+    	<input type="submit" class="btn btn-outline-success btn-lg" value="Essayez moi !  " />
+		</form>
+	</li>
+	<br>
+	<br>
+	<li> Réinitialiser la base de données : <span>
+		<form action="drop" method="post" enctype="multipart/form-data">
+    	<input type="submit" class="btn btn-outline-danger" value=" Attention Réinitialisation ">
+		</form>
+	</li>
+</ul>
+</div>
+
+<!-- code js pour bootstrapp -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

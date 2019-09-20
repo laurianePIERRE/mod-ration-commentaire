@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><!-- code bootstrap --> 
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+		<title> Résultats des prédiction </title>
+
+		<style type="text/css">
+		body {
+			background-color: #d9d9d9;
+			max-width: 100%;
+			margin: auto;
+			} </style>
+</head>
+<body>
+
+	<p> Voici comment notre modèle prédit le caractère ingurieux d'un commentaire. </p>
+    <br>
+    <p> Si un commentaire vous semble mal annoté, merci de le modifier à l'aide des boutons. Ces commentaires seront
+    alors réinsérés dans notre modèle pour augmenter sa performance . </p>
+    <br>
+   <div >
+         <form action="predict_page" method="post" enctype="multipart/form-data">
+          <table class="table table-border" style="border-color:red;">
+              <tr>
+                  <td> Commentaire</td>
+                  <td> auteur </td>
+                  <td> Prediction</td>
+                  <td> Signalement d'erreur </td>
+              </tr>
+                {% for (id_commentaire,comm,label,id,auteur) in comments_list_predict %}
+              <tr>
+                  <td> {{ comm}}</td>
+                  <td> inconnu </td>
+                  <td>
+                      {% if label== 0 %}
+                      admis
+                      {% elif label== 1 %}
+                      raciste
+                      {% elif label== 2 %}
+                      homophobe
+                      {% elif label== 3 %}
+                      sexiste
+                      {% elif label== 4%}
+                      autre injure
+                      {%endif %}
+                  </td>
+                  <td>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="0" >Commentaire bon </button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="1"  >Commentaire raciste </button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="2"  >Commentaire homophobe</button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="3" >Commentaire sexiste</button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="4">Commentaire injurieux </button>
+
+
+
+                  </td>
+
+              </tr>
+              {%endfor %}
+          </table>
+         </form>
+       <br>
+       <form action="bruitter_in_db" method="post" enctype="multipart/form-data" >
+           <input type="submit" class="btn btn-outline-info" value="envoyer les commentaires labélisés" />
+       </form>
+   </div>
+</body>
+</html>

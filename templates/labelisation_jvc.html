@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+    <title> labeliser les commentaires </title>
+
+    <style type="text/css">
+    body {
+      background-color:#d9d9d9;
+      width:100%;
+      margin:auto;
+      } </style>
+
+	
+</head>
+
+<body>
+  <div class="container-fluid">
+      <h1> Labélisation des commentaires injurieux </h1>
+
+      <p>  Cette page sert à annoter si un commentaire est à modérer
+      si le commentaire vous parait injurieux il vous suffit de cliquer sur le bouton prévu à cet effet afin de spécifier la nature de l'injure. </p>
+
+
+     <div class="container-fluid" style="font-size" >
+         <form action="negvspos" method="post" enctype="multipart/form-data">
+          <table class="table table-border" width="100%" >
+              <tr>
+                  <td> Commentaire</td>
+                  <td> auteur </td>
+                  <td> A modérer</td>
+                  <td> Type d'ingure </td>
+              </tr>
+                {% for (id_commentaire,commentaire,label,auteur, id_articles) in commentaire %}
+              <tr>
+                  <td> {{ commentaire}}</td>
+                  <td> {{ auteur}}</td>
+                  <td>
+                      {% if label== 0 %}
+                      aucune
+                      {% elif label== 1 %}
+                      raciste
+                      {% elif label== 2 %}
+                      homophobe
+                      {% elif label== 3 %}
+                      sexiste
+                      {% elif label== 4%}
+                      autre injure
+                      {%endif %}
+                  </td>
+                  <td>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="0" >Commentaire bon </button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="1"  >Commentaire raciste </button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="2"  >Commentaire homophobe</button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="3" >Commentaire sexiste</button>
+                      <button type="submit" class="btn btn-outline-info" name={{id_commentaire}} value="4">Commentaire injurieux</button>
+
+
+                  </td>
+
+              </tr>
+              {%endfor %}
+
+          </table>
+
+        </form>
+
+      </div>
+  </div>
+
+</div>
+    </body>
+    </html>

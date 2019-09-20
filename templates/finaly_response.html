@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <!-- code bootstrap --> 
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   
+		<title> prédiction  </title>
+
+		<style type="text/css">
+		body {
+			background-color: #d9d9d9;
+			max-width: 50%;
+			margin: auto;
+			} </style>
+</head>
+	
+
+    	<p> Le commentaire {{commentaire[1]}} :  {{res}} </p>
+    
+
+
+<form action="/", method="post", enctype="multipart/form-data">
+  <input type="submit", value="Retour à l'accueuil ">
+</form>
+
+</body>
+</html>

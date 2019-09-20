@@ -1,0 +1,55 @@
+<html>
+<head>
+  <link rel="stylesheet" media="screen" type="text/css" href="/static/style.css">
+	<title> Annotées des commentaires </title>
+</head>
+<body>
+<h1> Commentaire négatif ou positif</h1>
+
+<p> Le but de cette application est de dire si un commentaire est positif ou négatif sur le site {{client}} </p>
+<p> test</p>
+
+
+    <div >
+      <form action="test" method="post" enctype="multipart/form-data">
+         {% for (id_commentaire,commentaire,label, id_articles,auteur) in commentaire %}
+      {% if label==0 %}
+   <p><span class="dot_red"></span>  {{com}} </p>
+   <p class="commentaire"> {{ commentaire}} </p>
+      <p class="auteur"> {{ auteur}} </p>
+
+        {% elif label==1 %}
+
+    <p> <span class="dot_green"></span> {{com}} </p>
+   <p class="commentaire"> {{ commentaire}} </p>
+     <p class="auteur"> {{ auteur}} </p>
+
+  {% elif label==2 %}
+
+    <p> <span class="dot_grey"></span> {{com}} </p>
+   <p class="commentaire"> {{ commentaire}} </p>
+     <p class="auteur"> {{ auteur}} </p>
+        {% else%}
+
+      <p class="commentaire"> {{commentaire}}  </p>
+      <p class="auteur"> {{ auteur}} </p>
+
+         <form action="test" method="post" enctype="multipart/form-data">
+        <input type="radio" name={{id_commentaire}} value="0" >
+          négatif <br>
+        <input type="radio" name={{id}} value="msa">
+        positif<br>
+        <input type="radio" name={{id}} value="2">
+        neutre <br>
+        <button type="submit">valid</button>
+
+
+{% endif %}
+        {% endfor %}
+      </div>
+</form>
+<form action="main" method="post" enctype="multipart/form-data">
+    <input type="submit" value=" retour accueil ">
+</form>
+    </body>
+    </html>

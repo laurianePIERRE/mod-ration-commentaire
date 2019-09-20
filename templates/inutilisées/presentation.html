@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" media="screen" type="text/css" href="/static/style.css">
+	<title> Annotées des commentaires </title>
+    <title>Title</title>
+</head>
+<body>
+<h1> Bienvenue </h1>
+
+<p> Cette application web sert à labelliser les commentaires des Articles News de jeux vidéo </p>
+
+<p> Vous pouvez soit </p>
+
+<form action="new" method="post" enctype="multipart/form-data">
+    <input type="submit"  value=" extraire de nouveaux commentaires " />
+</form>
+
+<form action="labellise" method="post" enctype="multipart/form-data" >
+    <input type="submit" value=" labélliser directement les commentaires" />
+</form>
+
+<form action="/drop" method="post" enctype="multipart/form-data">
+    <input type="submi" value="Reinitialisation ">
+</form>
+</body>
+</html>
